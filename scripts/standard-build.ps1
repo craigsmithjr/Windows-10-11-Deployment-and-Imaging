@@ -28,4 +28,7 @@ Get-CimInstance Win32_StartupCommand | Format-Table Name, Command
 # Set default browser (Chrome)
 # Note: Windows 11 makes this difficult to automate, would typically be done through Group Policy
 
-Write-Host "Standard build configuration complete."
+Write-Host "====================================" -ForegroundColor Green
+Write-Host "Standard build configuration complete." -ForegroundColor Green
+Write-Host "====================================" -ForegroundColor Green
+Read-Host "Press Enter to close"
