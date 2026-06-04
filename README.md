@@ -29,7 +29,7 @@ The full script can be found in the [scripts/standard-build.ps1](scripts/standar
 After running the script, I manually completed the remaining configuration:
 - Set the computer name to a standardized naming convention (e.g., WS-001)
 - Set Chrome as the default browser
-- <img width="1050" height="338" alt="image" src="https://github.com/user-attachments/assets/4d659d15-8632-4961-9798-9320820cbf2c" />
+<img width="1050" height="338" alt="image" src="https://github.com/user-attachments/assets/4d659d15-8632-4961-9798-9320820cbf2c" />
 
 - Pinned frequently used applications to the taskbar
 - Configured desktop layout for a clean, professional workspace
