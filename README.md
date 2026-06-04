@@ -16,11 +16,17 @@ Created a new VM in VirtualBox with 4 GB of RAM and a 50 GB virtual hard disk. M
 
 ## Step 2: Configuring the Standard Company Build
 
-After installation, configured the machine to match what a corporate IT department would deliver to a new employee. This included:
-
-- Setting the computer name to a standardized naming convention (e.g., WS-001)
+After installation, configured the machine to match what a corporate IT department would deliver to a new employee. To ensure consistency and repeatability across deployments, I automated the software installation and bloatware removal using a PowerShell script with Chocolatey as the package manager.
+The script handles:
+- Installing Chocolatey (a Windows package manager used for automated software deployment)
 - Installing standard business software: Google Chrome, Mozilla Firefox, Zoom, Slack, 7-Zip, Adobe Reader, and LibreOffice
-- Setting Chrome as the default browser
-- Pinning frequently used applications to the taskbar
-- Removing unnecessary pre-installed apps and disabling bloatware
+- Removing pre-installed Windows bloatware (Xbox, Solitaire, Spotify, Clipchamp, etc.)
 - Disabling unnecessary startup programs to improve boot times
+
+The full script can be found in the [scripts/standard-build.ps1](scripts/standard-build.ps1) file in this repository.
+After running the script, I manually completed the remaining configuration:
+- Set the computer name to a standardized naming convention (e.g., WS-001)
+- Set Chrome as the default browser
+- Pinned frequently used applications to the taskbar
+- Configured desktop layout for a clean, professional workspace
+Using a script instead of manual installation ensures every machine deployed from this image has the exact same software and configuration, which reduces inconsistencies and saves time when onboarding multiple employees.
