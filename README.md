@@ -19,9 +19,11 @@ Created a new VM in VirtualBox with 4 GB of RAM and a 50 GB virtual hard disk. M
 After installation, configured the machine to match what a corporate IT department would deliver to a new employee. To ensure consistency and repeatability across deployments, I automated the software installation and bloatware removal using a PowerShell script with Chocolatey as the package manager.
 The script handles:
 - Installing Chocolatey (a Windows package manager used for automated software deployment)
-- Installing standard business software: Google Chrome, Mozilla Firefox, Zoom, Slack, 7-Zip, Adobe Reader, and LibreOffice
+- Installing standard business software: Google Chrome, Mozilla Firefox, Zoom, Slack, 7-Zip, Adobe Reader, and LibreOffice( Used LibreOffice as a stand-in for Microsoft 365 Apps in this lab environment. In a production setting, Microsoft 365 would typically be deployed through Microsoft Intune or SCCM after the machine is domain-joined and the user is licensed through the M365 admin center)
 - Removing pre-installed Windows bloatware (Xbox, Solitaire, Spotify, Clipchamp, etc.)
 - Disabling unnecessary startup programs to improve boot times
+<img width="1025" height="745" alt="image" src="https://github.com/user-attachments/assets/e64a375e-aafd-46a5-809f-d41b8d60b7a7" />
+
 
 The full script can be found in the [scripts/standard-build.ps1](scripts/standard-build.ps1) file in this repository.
 After running the script, I manually completed the remaining configuration:
