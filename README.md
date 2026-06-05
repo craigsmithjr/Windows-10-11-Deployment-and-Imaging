@@ -36,6 +36,7 @@ The script handles:
 - Removing pre-installed Windows bloatware (Xbox, Solitaire, Spotify, Clipchamp, etc.)
 - Disabling unnecessary startup programs to improve boot times
 <img width="1025" height="745" alt="image" src="https://github.com/user-attachments/assets/e64a375e-aafd-46a5-809f-d41b8d60b7a7" />
+Using a script instead of manual installation ensures every machine deployed from this image has the exact same software and configuration, which reduces inconsistencies and saves time when onboarding multiple employees.
 
 
 The full script can be found in the [scripts/standard-build.ps1](scripts/standard-build.ps1) file in this repository.
@@ -80,12 +81,25 @@ Applied baseline security configurations that would be standard in a corporate e
 Joined the Windows 11 client to the domain by navigating to System > Domain or workgroup > Change, selecting Domain, and entering the domain name. Authenticated with the Domain Admin credentials and received the "Welcome to the domain" confirmation. After restarting, the machine appeared in Active Directory Users and Computers under the Computers container.
 
 This step connects the imaging project to real-world domain management. Once a machine is domain-joined, Group Policy applies automatically and users can log in with their domain credentials.
-<img width="1333" height="800" alt="image" src="https://github.com/user-attachments/assets/4160d2e4-17b3-4518-b89b-84b7bc51cddd" />
-<img width="1021" height="762" alt="image" src="https://github.com/user-attachments/assets/70e7b291-ad34-455b-8802-8ae7bf532da6" />
-<img width="1335" height="799" alt="image" src="https://github.com/user-attachments/assets/5c8049e8-93f4-4551-a782-2e3ce2018b08" />
+<img width="791" height="622" alt="image" src="https://github.com/user-attachments/assets/ccac4c15-7229-40ba-b187-956b123fa743" />
+
+## Step 8: Running Sysprep to Generalize the Image
+
+Before running Sysprep, removed the machine from the domain and switched back to a workgroup since Sysprep requires the machine to not be domain-joined.
+
+Ran Sysprep to prepare the machine for deployment. Sysprep removes all hardware-specific and user-specific information so the image can be deployed to any machine without conflicts.
+
+Opened Command Prompt as administrator and ran:
+C:\Windows\System32\Sysprep\sysprep.exe
+
+Selected the following options:
+- System Cleanup Action: Enter System Out-of-Box Experience (OOBE)
+- Generalize: Checked
+- Shutdown Options: Shutdown
+
+After Sysprep completed, the machine shut down automatically. At this point, the image is ready to be captured and deployed to other machines.
+<img width="1336" height="796" alt="image" src="https://github.com/user-attachments/assets/6e775647-2562-4fc4-b2ba-22a76764214b" />
 
 
 
 
-
-Using a script instead of manual installation ensures every machine deployed from this image has the exact same software and configuration, which reduces inconsistencies and saves time when onboarding multiple employees.
