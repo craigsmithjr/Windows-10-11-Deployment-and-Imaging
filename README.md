@@ -48,4 +48,23 @@ After running the script, I manually completed the remaining configuration:
 - Configured desktop layout for a clean, professional workspace
 <img width="1365" height="927" alt="image" src="https://github.com/user-attachments/assets/8b5b97f2-6fc5-40f6-b76a-f6998b4cc51f" />
 
+## Step 4 Configuring the Network
+Configured static IP addresses on both VMs so they could communicate on the same LAN segment.
+
+Domain Controller:
+- IP: 10.0.0.1
+- Subnet: 255.255.255.0
+- Preferred DNS: 127.0.0.1 (itself)
+
+Windows 11 Client:
+- IP: 10.0.0.10
+- Subnet: 255.255.255.0
+- Preferred DNS: 10.0.0.1 (pointing to the DC)
+
+Verified connectivity by pinging the DC from the client.
+<img width="949" height="600" alt="image" src="https://github.com/user-attachments/assets/5cabc0cf-1693-48d4-903c-e094d549a674" />
+<img width="987" height="620" alt="image" src="https://github.com/user-attachments/assets/46ad3fa2-1287-4116-a6f2-bfcf4eed000e" />
+
+
+
 Using a script instead of manual installation ensures every machine deployed from this image has the exact same software and configuration, which reduces inconsistencies and saves time when onboarding multiple employees.
