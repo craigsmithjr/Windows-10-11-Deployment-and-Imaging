@@ -1,20 +1,33 @@
 # Windows-10-11-Deployment-and-Imaging
-Created a standardized Windows 11 enterprise image in VirtualBox to simulate a corporate desktop deployment workflow. Configured business software, security settings, and user profiles, then used Sysprep to generalize the image for deployment. Documented the full process including a new hire onboarding checklist for IT teams.
+
+Created a standardized Windows 11 enterprise image in VMware and deployed it to a domain-joined environment. Built a local Active Directory domain using Windows Server 2025, configured networking between the DC and client, automated software installation using PowerShell and Chocolatey, and used Sysprep to generalize the image for mass deployment.
 
 ## Tools Used
-- Oracle VirtualBox
+- VMware Workstation
+- Windows Server 2025 (Evaluation)
 - Windows 11 Enterprise (Evaluation)
+- Active Directory Domain Services
+- DNS
 - Sysprep
-- Windows Defender
-- Windows Firewall
+- PowerShell
+- Chocolatey (Package Manager)
 
-## Step 1: Creating the Virtual Machine in VirtualBox
+## Step 1: Setting Up the Domain Controller
 
-Created a new VM in VirtualBox with 4 GB of RAM and a 50 GB virtual hard disk. Mounted the Windows 11 Enterprise evaluation ISO downloaded from Microsoft's Evaluation Center and completed a standard installation.
+Created a Windows Server 2025 Domain Controller in VMware 
+to provide Active Directory and DNS services for the lab 
+environment. The DC setup follows the same process documented 
+in my [Azure AD Home Lab](https://github.com/craigsmithjr/azure-ad-homelab) 
+project, adapted for a local VMware environment instead of Azure.
+<img width="1034" height="792" alt="image" src="https://github.com/user-attachments/assets/12322801-3621-4fcf-bd1a-8a2aeb82e653" />
+
+## Step 2: Creating the Client virtual machine
+
+Created a new VM in VMWare with 4 GB of RAM and a 50 GB virtual hard disk. Mounted the Windows 11 Enterprise evaluation ISO downloaded from Microsoft's Evaluation Center and completed a standard installation.
 <img width="930" height="870" alt="image" src="https://github.com/user-attachments/assets/8d9fda2a-5f68-4717-94e7-393b9989d86a" />
 <img width="1022" height="758" alt="image" src="https://github.com/user-attachments/assets/e8e8e21f-6af1-443b-b0e4-009c96098cf2" />
 
-## Step 2: Configuring the Standard Company Build
+## Step 3: Configuring the Standard Company Build
 
 After installation, configured the machine to match what a corporate IT department would deliver to a new employee. To ensure consistency and repeatability across deployments, I automated the software installation and bloatware removal using a PowerShell script with Chocolatey as the package manager.
 The script handles:
