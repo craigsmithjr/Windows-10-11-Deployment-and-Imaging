@@ -86,7 +86,7 @@ This step connects the imaging project to real-world domain management. Once a m
 <img width="1021" height="762" alt="image" src="https://github.com/user-attachments/assets/eb8fa9c4-28d6-4fe4-b0f9-0f0111c3c6a4" />
 
 
-## Step 8: Running Sysprep to Generalize the Image
+## Step 7: Running Sysprep to Generalize the Image
 
 Before running Sysprep, removed the machine from the domain and switched back to a workgroup since Sysprep requires the machine to not be domain-joined.
 
