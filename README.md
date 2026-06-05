@@ -65,6 +65,23 @@ Verified connectivity by pinging the DC from the client.
 <img width="949" height="600" alt="image" src="https://github.com/user-attachments/assets/5cabc0cf-1693-48d4-903c-e094d549a674" />
 <img width="987" height="620" alt="image" src="https://github.com/user-attachments/assets/46ad3fa2-1287-4116-a6f2-bfcf4eed000e" />
 
+## Step 5: Configuring Security Settings
+
+Applied baseline security configurations that would be standard in a corporate environment:
+
+- Verified Windows Defender is active and up to date
+- Confirmed Windows Firewall is enabled for all network profiles
+- Disabled Remote Desktop (would be enabled per-user through Group Policy in a real environment)
+- Set the account lockout policy to lock after 5 failed login attempts
+- Configured the power plan to "Balanced" to prevent machines from sleeping during business hours
+
+## Step 6: Joining the Client to the Domain
+
+Joined the Windows 11 client to the domain by navigating to System > Domain or workgroup > Change, selecting Domain, and entering the domain name. Authenticated with the Domain Admin credentials and received the "Welcome to the domain" confirmation. After restarting, the machine appeared in Active Directory Users and Computers under the Computers container.
+
+This step connects the imaging project to real-world domain management. Once a machine is domain-joined, Group Policy applies automatically and users can log in with their domain credentials.
+<img width="791" height="622" alt="image" src="https://github.com/user-attachments/assets/ccac4c15-7229-40ba-b187-956b123fa743" />
+
 
 
 Using a script instead of manual installation ensures every machine deployed from this image has the exact same software and configuration, which reduces inconsistencies and saves time when onboarding multiple employees.
