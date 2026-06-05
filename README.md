@@ -81,7 +81,10 @@ Applied baseline security configurations that would be standard in a corporate e
 Joined the Windows 11 client to the domain by navigating to System > Domain or workgroup > Change, selecting Domain, and entering the domain name. Authenticated with the Domain Admin credentials and received the "Welcome to the domain" confirmation. After restarting, the machine appeared in Active Directory Users and Computers under the Computers container.
 
 This step connects the imaging project to real-world domain management. Once a machine is domain-joined, Group Policy applies automatically and users can log in with their domain credentials.
-<img width="791" height="622" alt="image" src="https://github.com/user-attachments/assets/ccac4c15-7229-40ba-b187-956b123fa743" />
+<img width="1333" height="800" alt="image" src="https://github.com/user-attachments/assets/487242d3-643e-453d-8342-42560130a9a3" />
+
+<img width="1021" height="762" alt="image" src="https://github.com/user-attachments/assets/eb8fa9c4-28d6-4fe4-b0f9-0f0111c3c6a4" />
+
 
 ## Step 8: Running Sysprep to Generalize the Image
 
