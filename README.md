@@ -103,6 +103,21 @@ Selected the following options:
 After Sysprep completed, the machine shut down automatically. At this point, the image is ready to be captured and deployed to other machines.
 <img width="1336" height="796" alt="image" src="https://github.com/user-attachments/assets/6e775647-2562-4fc4-b2ba-22a76764214b" />
 
+## Step 8: Preparing the Image for Deployment
+
+Attempted to run Sysprep to generalize the image for mass 
+deployment. Encountered a known Windows 11 compatibility issue 
+with reserved storage blocking the generalization process. 
+In a production environment, this would typically be resolved 
+through a clean base image or handled by enterprise deployment 
+tools like Microsoft Deployment Toolkit (MDT) or SCCM/Intune 
+which manage imaging at scale.
+
+As an alternative, cloned the VM directly in VMware to simulate 
+deploying the standard image to a new workstation. After booting 
+the clone, renamed the computer, joined it to the domain, and 
+verified all pre-installed software and configurations were intact.
+
 
 
 
