@@ -86,29 +86,16 @@ This step connects the imaging project to real-world domain management. Once a m
 <img width="1021" height="762" alt="image" src="https://github.com/user-attachments/assets/eb8fa9c4-28d6-4fe4-b0f9-0f0111c3c6a4" />
 
 
-## Step 7: Running Sysprep to Generalize the Image
-
-Before running Sysprep, removed the machine from the domain and switched back to a workgroup since Sysprep requires the machine to not be domain-joined.
-
-Ran Sysprep to prepare the machine for deployment. Sysprep removes all hardware-specific and user-specific information so the image can be deployed to any machine without conflicts.
-
-Opened Command Prompt as administrator and ran:
-C:\Windows\System32\Sysprep\sysprep.exe
-
-Selected the following options:
-- System Cleanup Action: Enter System Out-of-Box Experience (OOBE)
-- Generalize: Checked
-- Shutdown Options: Shutdown
-
-After Sysprep completed, the machine shut down automatically. At this point, the image is ready to be captured and deployed to other machines.
-<img width="1336" height="796" alt="image" src="https://github.com/user-attachments/assets/6e775647-2562-4fc4-b2ba-22a76764214b" />
-
-## Step 8: Preparing the Image for Deployment
+## Step 7: Preparing the Image for Deployment
 
 Attempted to run Sysprep to generalize the image for mass 
-deployment. Encountered a known Windows 11 compatibility issue 
-with reserved storage blocking the generalization process. 
-In a production environment, this would typically be resolved 
+deployment. Sysprep removes all hardware-specific and 
+user-specific information so the image can be deployed to 
+any machine without conflicts.
+
+Encountered a known Windows 11 compatibility issue with 
+reserved storage blocking the generalization process. In a 
+production environment, this would typically be resolved 
 through a clean base image or handled by enterprise deployment 
 tools like Microsoft Deployment Toolkit (MDT) or SCCM/Intune 
 which manage imaging at scale.
@@ -118,6 +105,34 @@ deploying the standard image to a new workstation. After booting
 the clone, renamed the computer, joined it to the domain, and 
 verified all pre-installed software and configurations were intact.
 
+## Step 8: New Hire Onboarding Checklist
+
+Created a checklist that an IT team could follow when setting up a machine for a new employee:
+
+- [ ] Deploy the standard Windows 11 image to the machine
+- [ ] Rename the computer following the company naming convention
+- [ ] Configure static IP and DNS settings
+- [ ] Join the machine to the domain
+- [ ] Log in as the new user to create their profile
+- [ ] Configure email (Outlook/Exchange)
+- [ ] Set up Microsoft Teams and verify login
+- [ ] Map network drives and printers
+- [ ] Install any department-specific software
+- [ ] Label and tag the hardware in the asset tracking system
+- [ ] Deliver the machine and walk the user through their first login
+- [ ] Document the setup in the ticketing system
+
+## What I Learned
+
+- How to create a standardized Windows 11 image for corporate deployment
+- How to automate software installation and bloatware removal using PowerShell and Chocolatey
+- How to configure static IP addressing and DNS to enable communication between a client and Domain Controller
+- How to join a Windows 11 client to an Active Directory domain
+- How Sysprep works and the known compatibility challenges with Windows 11 reserved storage
+- How enterprise deployment tools like MDT, SCCM, and Intune handle imaging at scale in production environments
+- How the imaging and deployment process fits into the larger employee onboarding workflow
+- How to troubleshoot networking issues between VMs including firewall rules and DNS configuration
+The Sysprep bullet in the What I Learned section is good to include because it shows you 
 
 
 
